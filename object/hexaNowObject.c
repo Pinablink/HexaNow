@@ -9,6 +9,9 @@
 #define  EXIT      			3
 
 static void implInit ();
+static void finishResource ();
+static void cleanMEM (void *refer);
+static void clearScreen ();
 
 static HEXANOW  hexaNow;
 static int      *inputOption;
@@ -26,6 +29,7 @@ HEXANOW* newObj (void) {
 	hexaNow.dataConvertExist	=   0;
 	hexaNow.init    	 		=   &implInit;
 	
+	clearScreen();
 	runInitResource (&hexaNow);		
 
 	return &hexaNow; 

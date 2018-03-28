@@ -6,12 +6,14 @@
 #define  VALOR_INICIAL 		0
 #define  QT_POS_REPRE_HEXA 	4
 
+
 void runInitResource (HEXANOW *hexanowRefer);
 static void initEquivalences  (DATA_RESOURCE *dataResourceRefer);
 static void chargeASCIIValues (DATA_RESOURCE *dataResourceRefer);
 
 void runInitResource (HEXANOW *hexanowRefer) {
-
+   initSysColor ();
+   setColorYellowText ();
    printf (__MESSAGE_INIT1__);
    DATA_RESOURCE dataResource 	= 	*(DATA_RESOURCE*)malloc(sizeof(DATA_RESOURCE));
    dataResource.equivalenceList	=	(EQUIVALENCE*)malloc(SIZE_ASCII * sizeof(EQUIVALENCE));
@@ -20,6 +22,7 @@ void runInitResource (HEXANOW *hexanowRefer) {
    printf (__MESSAGE_INIT2__);
    printf (__MESSAGE_INIT3__);
    system("PAUSE");
+   setColorWhiteText();
 }
 
 static void initEquivalences (DATA_RESOURCE *dataResourceRefer) {
