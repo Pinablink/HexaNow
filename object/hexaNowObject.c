@@ -23,6 +23,7 @@ static FILE     *fileDataTransf;
 HEXANOW* newObj (void) {
 	quantCaracter		 		=	*(int*)malloc(sizeof(int));
 	hexaNow 			 		= 	*(HEXANOW*)malloc(sizeof(HEXANOW));
+	hexaNow.dataASC_ON			=	*(int*)malloc(sizeof(int));
 	hexaNow.MENU 		 		=	__MENU__;
 	hexaNow.MENU_INPUT	 		=	__MENUINPUT__;
 	hexaNow.WORD_CONVERT 		=  (char*)calloc(1,sizeof(char));
@@ -30,7 +31,6 @@ HEXANOW* newObj (void) {
 	hexaNow.init    	 		=   &implInit;
 	
 	clearScreen();
-	runInitResource (&hexaNow);		
 
 	return &hexaNow; 
 } 
@@ -199,23 +199,61 @@ static void inputConfigScreen1 () {
 static void viewList() {
 	char  		  valueChar;
 	char*  		  strHexa;
-	unsigned int  lenList	 	= 	23;
+	char          space         =   *(char*)malloc(sizeof(char));
 	unsigned int  indexCursor 	=  	 0;
 	DATA_RESOURCE dtResource 	=	hexaNow.dataResourceObject;
 	EQUIVALENCE*  CURSOR 		=	dtResource.equivalenceList;	
+	unsigned int  lenList	 	= 	dtResource.lenEquivalence;
 	clearScreen();
+	space						=	0x20;
 
-	printf ("---| Caracter  | Valor Hexadecimal |---");
-	
-	for (;indexCursor < lenList; indexCursor++) {
+	setColorWhiteText();
+	printf ("--- ");
+	setColorYellowText ();
+	printf ("Numero decimal");
+	setColorWhiteText();
+	printf (" | ");
+	setColorGreenText ();
+	printf ("Caracter");
+	setColorWhiteText();
+	printf ("  | ");
+	setColorRedText();
+	printf ("Valor Hexadecimal");
+	setColorWhiteText();
+	printf (" |---");
+
+	for (;indexCursor < (lenList + 1); indexCursor++) {
 		valueChar 		 = (*(CURSOR + indexCursor)).caracter;
 		strHexa 		 = (*(CURSOR + indexCursor)).hexaEquivalence;
-	
-		printf ("\n Caracter : Sem exibicao Grafica - Valor : %s",strHexa); 	
-	
+		
+		if (indexCursor <= 9) {
+			setColorYellowText();
+			printf("\n%c%d", space, indexCursor);
+			setColorWhiteText();
+			printf("   - Caracter : ");
+			setColorGreenText();
+			printf("Sem exibicao Grafica ");
+			setColorWhiteText();
+			printf("- Valor : ");
+			setColorRedText();
+			printf("%s", strHexa);
+		} else {
+			setColorYellowText();
+			printf("\n%d", indexCursor);
+			setColorWhiteText();
+			printf("   - Caracter : ");
+			setColorGreenText();
+			printf("Sem exibicao Grafica ");
+			setColorWhiteText();
+			printf("- Valor : ");
+			setColorRedText();
+			printf("%s", strHexa);
+		}
+		 	
 	}
 
 	printf ("\n");
+	setColorWhiteText();
 	CURSOR 				 = NULL;
 	free(CURSOR);
 	system ("PAUSE");
@@ -226,6 +264,8 @@ static void implInit () {
 	int STATUS  = 1;
 	inputOption = (int*)malloc(sizeof(int));
 	
+	runInitResource (&hexaNow);	
+
 	while (STATUS == 1) {
 		clearScreen();
 		printf ("%s\n%s",hexaNow.MENU,"Entre com a opcao: ");
