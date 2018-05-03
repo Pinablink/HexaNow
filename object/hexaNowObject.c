@@ -196,6 +196,16 @@ static void inputConfigScreen1 () {
 	}
 }
 
+static void setCaracterWord (unsigned int pos) {
+	if (pos <= 9) {
+		printf("     - Caracter : ");
+	} else if (pos <= 99) {
+		printf("    - Caracter : ");
+	} else if (pos >= 100) {
+		printf("   - Caracter : ");
+	}
+}
+
 static void viewList() {
 	char  		  valueChar;
 	char*  		  strHexa;
@@ -226,11 +236,11 @@ static void viewList() {
 		valueChar 		 = (*(CURSOR + indexCursor)).caracter;
 		strHexa 		 = (*(CURSOR + indexCursor)).hexaEquivalence;
 		
-		if (indexCursor <= 9) {
+		if (indexCursor <= 32) {
 			setColorYellowText();
 			printf("\n%c%d", space, indexCursor);
 			setColorWhiteText();
-			printf("   - Caracter : ");
+			setCaracterWord(indexCursor);
 			setColorGreenText();
 			printf("Sem exibicao Grafica ");
 			setColorWhiteText();
@@ -239,13 +249,14 @@ static void viewList() {
 			printf("%s", strHexa);
 		} else {
 			setColorYellowText();
-			printf("\n%d", indexCursor);
+			printf("\n%c%d", space, indexCursor);
 			setColorWhiteText();
-			printf("   - Caracter : ");
+			setCaracterWord(indexCursor);
 			setColorGreenText();
-			printf("Sem exibicao Grafica ");
+			printf("%c",valueChar);
+			//printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",space, space, space, space, space, space, space, space, space ,space, valueChar, space, space, space, space, space, space, space, space);
 			setColorWhiteText();
-			printf("- Valor : ");
+			printf("                    - Valor : ");
 			setColorRedText();
 			printf("%s", strHexa);
 		}
