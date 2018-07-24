@@ -236,7 +236,8 @@ static void viewList() {
 		valueChar 		 = (*(CURSOR + indexCursor)).caracter;
 		strHexa 		 = (*(CURSOR + indexCursor)).hexaEquivalence;
 		
-		if (indexCursor <= 32) {
+		if ((indexCursor <= 32) 
+			|| (indexCursor >= 126 && indexCursor <= 255)) {
 			setColorYellowText();
 			printf("\n%c%d", space, indexCursor);
 			setColorWhiteText();
@@ -254,7 +255,6 @@ static void viewList() {
 			setCaracterWord(indexCursor);
 			setColorGreenText();
 			printf("%c",valueChar);
-			//printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",space, space, space, space, space, space, space, space, space ,space, valueChar, space, space, space, space, space, space, space, space);
 			setColorWhiteText();
 			printf("                    - Valor : ");
 			setColorRedText();
