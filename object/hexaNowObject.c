@@ -67,6 +67,34 @@ static void cleanMEM (void *refer) {
 static void clearScreen () {
 	system("cls");
 }
+// FUNCÕES PARA CONVERSÕES DE CARACTERES
+
+static void convertContent () {
+	if (hexaNow.dataConvertExist == 1 
+		&& hexaNow.pQuantCaracter > 0) {
+       //AINDA EM PROCESSO DE IMPLEMENTAÇÃO
+	   char* referCharCompute 			= hexaNow.WORD_CONVERT;
+       int ctrLoopQtCaracter 			= (hexaNow.pQuantCaracter - 1);
+	   DATA_RESOURCE refDataResource 	= hexaNow.dataResourceObject;
+	   EQUIVALENCE *refEquivalence       = refDataResource.equivalenceList;
+	   EQUIVALENCE *eqReaded;
+	   int lMem = 	refEquivalence;
+       int charReaded;
+
+	   do {
+         charReaded = *(referCharCompute++);
+		 eqReaded = (refEquivalence + charReaded);
+		 printf("%d\n", eqReaded);
+		 printf ("Lendo Caracter %c\n", eqReaded->caracter);
+		 refEquivalence = lMem;
+	   } while((--ctrLoopQtCaracter) >= 0);
+
+		system("PAUSE");
+	} 
+}
+
+//
+
 // FUNÇÕES PARA ENTRADA DE CARACTERES
 //Tela de apresentação para entrada de caracteres
 static void inputConfigScreen4 () {
@@ -82,10 +110,8 @@ static void inputConfigScreen4 () {
 		if (*internalOpt > 0 && *internalOpt < 4) {
 			//PROCEDIMENTO
 			if (*internalOpt == 1) {
-				// ADICIONAR PROCEDIMENTO
+				convertContent ();
 			} else if (*internalOpt == 2) {
-				// ADICIONAR PROCEDIMENTO
-			} else if (*internalOpt == 3) {
 				STATUS 		= 0;
 				internalOpt = NULL;
 				free (internalOpt);
@@ -144,6 +170,7 @@ static void inputConfigScreen2 () {
 		printf ("Quantidade de Caracter: ");
 		scanf("%d",&quantCaracter);
 		fflush(stdin);
+		hexaNow.pQuantCaracter = quantCaracter;
 
 		if (quantCaracter == 0) {
 			STATUS = 0;

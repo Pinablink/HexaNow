@@ -7,5 +7,5 @@
 #define __MENU__            "\n\n---->> HexaNowMain inicializado <<----\n--------------------------------------\nSelecione uma das opcoes:\n--------------------------------------\n1 - Exibir Tabela ASCII\n2 - Entrar com texto para transformar\n3 - Sair\n"
 #define __MENUINPUT__       "\n\nInforme a quantidade de caracteres de entrada.A quantidade maxima permitida sao de 32 caracteres.\n1 - Informa a quantidade\n2 - Retornar para Menu Inicial\n"
 #define __INPUT_CARACTER1__ "\n\nA quantidade de caracteres informados aqui precisa ter a mesma quantidade que foi parametrizado\n"
-#define __INPUT_OPT_CHARS__  "\n\n1 - Informar o nome e o tipo do dado para conversao\n2 - Converter agora a informacao\n3 - Sair do Processo\n"
+#define __INPUT_OPT_CHARS__  "\n\n1 - Converter agora a informacao\n2 - Sair do Processo\n"
 #endif

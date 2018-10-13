@@ -15,6 +15,7 @@ typedef struct{
 }DATA_RESOURCE;
 
 typedef struct {
+	unsigned int    pQuantCaracter;
 	unsigned int    dataASC_ON;
 	char* 			MENU;
 	char* 			MENU_INPUT;
