@@ -1,2 +1,2 @@
 # HexaNow
-Conversor de caracteres em Hexadecimal
+Conversor de palavras em Hexadecimal
