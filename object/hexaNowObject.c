@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <conio.h>
 #include "../lib/hexaNow.h"
 #include "../lib/message.h"
@@ -35,7 +36,7 @@ HEXANOW* newObj (void) {
 	return &hexaNow; 
 } 
 
-static void inputDataHex (char *dataInput) {
+static void inputDataHex (char *dataInput, int ctrInd) {
 	fileDataTransf = fopen ("DATA_TRANSF.dat", "w");
 
     if (fileDataTransf == NULL) {
@@ -43,7 +44,7 @@ static void inputDataHex (char *dataInput) {
     	printf("\nErro na execucao\n\n");
     } else {
     	//Incluir no arquivo de transferencia
-    	if (fwrite(dataInput,1,31,fileDataTransf) != -1) {
+    	if (fwrite(dataInput,1,ctrInd,fileDataTransf) != -1) {
     		printf("\nEscrita ok\n");
     	}  else {
     		printf ("\nProblema na escrita\n");
@@ -69,27 +70,56 @@ static void clearScreen () {
 }
 // FUNCÕES PARA CONVERSÕES DE CARACTERES
 
+static void concatHexaValues(int* indice, char* refCharHexa, char* refHexaEquivalent) {
+
+	unsigned int i = 0;
+
+	for (; i < 3; i++) {
+		printf("%c", *(refHexaEquivalent + i));
+		*(refCharHexa + (*indice)) = *(refHexaEquivalent + i);
+		*indice = *indice + 1;
+	}
+
+	*(refCharHexa + (*indice)) = ' ';
+	*indice = *indice + 1;
+}
+
 static void convertContent () {
 	if (hexaNow.dataConvertExist == 1 
 		&& hexaNow.pQuantCaracter > 0) {
-       //AINDA EM PROCESSO DE IMPLEMENTAÇÃO
+       //FUTURAMENTE INCLUÍDO EM PROCESSO DE MELHORIA
 	   char* referCharCompute 			= hexaNow.WORD_CONVERT;
        int ctrLoopQtCaracter 			= (hexaNow.pQuantCaracter - 1);
 	   DATA_RESOURCE refDataResource 	= hexaNow.dataResourceObject;
-	   EQUIVALENCE *refEquivalence       = refDataResource.equivalenceList;
+	   EQUIVALENCE *refEquivalence      = refDataResource.equivalenceList;
+	   char*  contentHexa               = (char*)malloc(((ctrLoopQtCaracter + 2) * 4)  * sizeof(char));
+	   int   indiceContentHexa          = 0;
+	   
 	   EQUIVALENCE *eqReaded;
 	   int lMem = 	refEquivalence;
        int charReaded;
 
+		printf("Tamanho formado : %d \n", ctrLoopQtCaracter);
+
 	   do {
          charReaded = *(referCharCompute++);
 		 eqReaded = (refEquivalence + charReaded);
-		 printf("%d\n", eqReaded);
-		 printf ("Lendo Caracter %c\n", eqReaded->caracter);
+		 printf(" Posicao da memória > %d\n", eqReaded);
+		 printf("Lendo Hexa equivalente %s \n", eqReaded->hexaEquivalence);
+		 concatHexaValues (&indiceContentHexa, contentHexa, eqReaded->hexaEquivalence);
 		 refEquivalence = lMem;
 	   } while((--ctrLoopQtCaracter) >= 0);
-
+		printf("Indice Processado : %d \n", indiceContentHexa);
+		printf("Finalizado Obtenção de Caracteres: \n");
 		system("PAUSE");
+		inputDataHex (contentHexa, indiceContentHexa);
+	    system("clipboard_hexanow.bat");
+	    printf("\nConteudo gerado na area de transferencia\n");
+		system("PAUSE");
+        free(referCharCompute);
+		free(contentHexa);
+		free(eqReaded);
+		
 	} 
 }
 
