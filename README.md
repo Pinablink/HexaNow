@@ -12,7 +12,7 @@ _____
 #### Informe a palavra ou uma frase
 - Ola Mundo!!
 
-#### A palavra ou frase é disponibilizado na área de tranferência
+#### A palavra ou frase fica disponivel na área de tranferência
 - 4FH 6CH 61H 20H 4DH 75H 6EH 64H 6FH 21H 21H 
 
 #### 💻👀 Demonstração 👀💻
