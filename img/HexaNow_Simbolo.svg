@@ -8,8 +8,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
+   width="310"
+   height="397"
    viewBox="0 0 210 297"
    version="1.1"
    id="svg8"
@@ -41,9 +41,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.62"
-     inkscape:cx="120.89978"
-     inkscape:cy="445.71429"
+     inkscape:zoom="0.3077861"
+     inkscape:cx="428.35025"
+     inkscape:cy="640.83624"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -137,27 +137,27 @@
          style="font-size:27.8536px;stroke-width:0.145071">A</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:115.106px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.599513"
-       x="62.69294"
-       y="206.32326"
+       style="font-style:normal;font-weight:normal;font-size:118.171px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.61548"
+       x="60.904861"
+       y="211.07225"
        id="text877"
-       transform="scale(0.98023276,1.0201659)"><tspan
+       transform="scale(1.0003759,0.99962429)"><tspan
          sodipodi:role="line"
          id="tspan875"
-         x="62.69294"
-         y="206.32326"
-         style="font-size:115.106px;stroke-width:0.599513">N</tspan></text>
+         x="60.904861"
+         y="211.07225"
+         style="font-size:118.171px;stroke-width:0.61548">N</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:25.5123px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.132876"
-       x="92.393753"
-       y="160.55455"
+       x="95.585144"
+       y="157.81548"
        id="text881"
        transform="scale(1.0697466,0.93480083)"><tspan
          sodipodi:role="line"
          id="tspan879"
-         x="92.393753"
-         y="160.55455"
+         x="95.585144"
+         y="157.81548"
          style="font-size:25.5123px;stroke-width:0.132876">O</tspan></text>
     <text
        xml:space="preserve"
