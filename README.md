@@ -23,7 +23,6 @@ _____
 </br>
 
 # 💻 Desenvolvimento
-___
 
 👉 A versão atual atende as necessidades básicas. Existem algumas limitações que necessitam de melhorias.
 
@@ -46,12 +45,11 @@ c:\Workspace\HexaNow> compileHexaNow.bat
 #### ⚠️ ATENÇÃO ⚠️
 ___________
 
-O comando compileHexaNow.bat realiza o link com os outros objetos dependentes. Portanto é necessário sempre que realizar a alteração em determinado objeto, executar seu comando bat. Em seguida o compileHexaNow.bat.
+O comando ***compileHexaNow.bat*** realiza o link com os outros objetos dependentes. Portanto é necessário sempre que realizar a alteração em determinado objeto, executar seu comando ****.bat***. Em seguida o ***compileHexaNow.bat***.
 
 # Sobre
-________
 
-👉 A motivação para sua criação foi a necessidade de disponibilizar mensagens embarcadas em Projetos Microcontrolados. O desenvolvimento de toda base tecnológica de meus projetos microcontrolados estão em Assembly. Todo o conteúdo de mensagem embarcado no Microcontrolador necessita estar no formaro Hexadecimal ou binário. Com isso e a idéia de explorar o desenvolvimento em C, codifiquei essa pequena ferramenta.
+👉 A motivação para sua criação foi a necessidade de disponibilizar mensagens embarcadas em Projetos Microcontrolados. O desenvolvimento de toda base tecnológica de meus projetos microcontrolados estão em Assembly. Todo o conteúdo de mensagem embarcado no Microcontrolador necessita estar no formaro Hexadecimal ou binário. Com isso e a idéia de explorar o desenvolvimento em linguagem ***C***, codifiquei essa pequena ferramenta.
 
 
 
